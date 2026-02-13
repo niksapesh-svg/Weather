@@ -17,7 +17,7 @@ export default defineConfig([
     ],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globalsёёёёёёё              : globals.browser,
     },
   },
 ])

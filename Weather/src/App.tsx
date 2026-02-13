@@ -1,5 +1,4 @@
 import { useState } from "react";
-import './styles/App.css'
 import { SearchBar } from "./components/SearchBar";
 import { CurrentWeather } from "./components/CurrentWeather";
 import { WeatherDetails } from "./components/WeatherDetails";
@@ -10,7 +9,6 @@ import { WeatherAnimations } from "./components/WeatherAnimations";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { motion } from "motion/react"; //for animations
 
-// Типы для данных погоды
 interface WeatherData { //поч это
     city: string;
     country: string;
@@ -247,12 +245,12 @@ function AppContent() {
         if (mockWeatherData[cityLower]) {
             setCurrentCity(cityLower);
         } else {
-            alert(`Город "${city}" не найден в демо-данных. Попробуйте: Москва, Лондон, Токио`);
+            alert(`Ничего не найдено.`);
         }
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-sky-400 dark:from-slate-900 dark:via-blue-950 dark:to-slate-900 transition-colors duration-500 relative">
+        <div className="min-h-screen bg-white dark:bg-black transition-colors duration-500 relative">
             <WeatherAnimations weatherType={weatherData.current.weatherType} />
 
             {/* Основной контент */}
@@ -326,42 +324,6 @@ function AppContent() {
                             ))}
                         </div>
                     </div>
-
-                    {/* Информация об API */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5 }}
-                        className="bg-white/10 dark:bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/20 dark:border-white/10 mb-4 shadow-lg dark:shadow-cyan-500/10"
-                    >
-                        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">
-                            Интеграция с OpenWeather API
-                        </h3>
-                        <p className="text-gray-700 dark:text-white/80 mb-3">
-                            Для работы с реальными данными получите бесплатный API ключ на{" "}
-                            <a
-                                href="https://openweathermap.org/api"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 dark:text-cyan-400 font-semibold hover:underline"
-                            >
-                                OpenWeatherMap.org
-                            </a>
-                        </p>
-                        <div className="bg-black/30 dark:bg-black/50 rounded-lg p-4 font-mono text-sm text-gray-200 dark:text-white/90 overflow-x-auto">
-                            <div className="mb-2">// Текущая погода:</div>
-                            <div className="text-green-300 dark:text-green-400">
-                                const API_KEY = 'YOUR_API_KEY_HERE';
-                            </div>
-                            <div className="text-blue-300 dark:text-blue-400">
-                                fetch(`https://api.openweathermap.org/data/2.5/weather?q=$&#123;city&#125;&appid=$&#123;API_KEY&#125;&units=metric&lang=ru`)
-                            </div>
-                            <div className="mt-3 mb-2">// Прогноз на 5 дней:</div>
-                            <div className="text-blue-300 dark:text-blue-400">
-                                fetch(`https://api.openweathermap.org/data/2.5/forecast?q=$&#123;city&#125;&appid=$&#123;API_KEY&#125;&units=metric&lang=ru`)
-                            </div>
-                        </div>
-                    </motion.div>
 
                     {/* Футер */}
                     <Footer />
