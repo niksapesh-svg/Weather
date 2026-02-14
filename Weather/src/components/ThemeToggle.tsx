@@ -7,13 +7,14 @@ export function ThemeToggle() {
     const { theme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
-        setMounted(true);
-    }, []);
+    //Разобраться потом
+     useEffect(() => {
+         setMounted(true);
+     }, []);
 
-    if (!mounted) {
-        return null;
-    }
+     if (!mounted) {
+         return null;
+     }
 
     const themes = [
         { value: "light", icon: Sun, label: "Светлая" },

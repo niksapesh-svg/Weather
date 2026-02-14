@@ -5,9 +5,7 @@ import {
     Sun,
     CloudDrizzle,
     CloudLightning,
-    CloudFog,
-    Sunrise,
-    Sunset
+    CloudFog
 } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -24,17 +22,8 @@ interface HourlyForecastProps {
 }
 
 export function HourlyForecast({ day, date, hours }: HourlyForecastProps) {
-    const getWeatherIcon = (type: string, time: string) => {
+    const getWeatherIcon = (type: string) => {
         const iconProps = { className: "w-8 h-8", strokeWidth: 1.5 };
-        const hour = parseInt(time.split(':')[0]);
-
-        // Специальные иконки для восхода и заката
-        if (type === "clear" && hour === 6) {
-            return <Sunrise {...iconProps} className="w-8 h-8 text-orange-400 dark:text-orange-300" />;
-        }
-        if (type === "clear" && hour === 18) {
-            return <Sunset {...iconProps} className="w-8 h-8 text-orange-500 dark:text-orange-400" />;
-        }
 
         switch (type.toLowerCase()) {
             case "clear":
@@ -83,7 +72,7 @@ export function HourlyForecast({ day, date, hours }: HourlyForecastProps) {
             </span>
 
                         <div className="my-1">
-                            {getWeatherIcon(hour.weatherType, hour.time)}
+                            {getWeatherIcon(hour.weatherType)}
                         </div>
 
                         <span className="text-lg font-semibold text-gray-800 dark:text-white">

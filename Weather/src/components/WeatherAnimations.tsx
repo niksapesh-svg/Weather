@@ -7,19 +7,38 @@ interface WeatherAnimationsProps {
 
 export function WeatherAnimations({ weatherType }: WeatherAnimationsProps) {
     const [particles, setParticles] = useState<number[]>([]);
+    const [viewport, setViewport] = useState({ width: 0, height: 0 });
+    const normalizedWeatherType = weatherType.toLowerCase();
 
     useEffect(() => {
-        // Генерируем частицы для дождя и снега
-        if (weatherType === "rain" || weatherType === "snow" || weatherType === "drizzle") {
-            setParticles(Array.from({ length: 50 }, (_, i) => i));
-        }
-    }, [weatherType]);
+        const updateViewport = () => {
+            setViewport({ width: window.innerWidth, height: window.innerHeight });
+        };
 
-    // Анимация солнца
-    if (weatherType === "clear") {
+        updateViewport();
+        window.addEventListener("resize", updateViewport);
+
+        return () => {
+            window.removeEventListener("resize", updateViewport);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (
+            normalizedWeatherType === "rain" ||
+            normalizedWeatherType === "snow" ||
+            normalizedWeatherType === "drizzle"
+        ) {
+            setParticles(Array.from({ length: 50 }, (_, i) => i));
+            return;
+        }
+
+        setParticles([]);
+    }, [normalizedWeatherType]);
+
+    if (normalizedWeatherType === "clear") {
         return (
             <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-                {/* Мягкое свечение */}
                 <motion.div
                     className="absolute top-20 right-20 w-96 h-96 rounded-full bg-yellow-300/30 blur-3xl"
                     animate={{
@@ -33,7 +52,6 @@ export function WeatherAnimations({ weatherType }: WeatherAnimationsProps) {
                     }}
                 />
 
-                {/* Пульсирующее ядро */}
                 <motion.div
                     className="absolute top-32 right-32 w-64 h-64 rounded-full bg-yellow-200/40 blur-2xl"
                     animate={{
@@ -50,28 +68,25 @@ export function WeatherAnimations({ weatherType }: WeatherAnimationsProps) {
         );
     }
 
-    // Анимация дождя
-    if (weatherType === "rain" || weatherType === "drizzle") {
+    if (normalizedWeatherType === "rain" || normalizedWeatherType === "drizzle") {
         return (
             <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-                {/* Размытие фона */}
                 <div className="absolute inset-0 backdrop-blur-[2px] bg-blue-900/10" />
 
-                {/* Падающие капли */}
                 {particles.map((i) => (
                     <motion.div
                         key={i}
                         className="absolute w-0.5 h-8 bg-gradient-to-b from-blue-200/60 to-transparent rounded-full"
                         initial={{
-                            x: Math.random() * window.innerWidth,
+                            x: Math.random() * viewport.width,
                             y: -20,
                             opacity: Math.random() * 0.5 + 0.3,
                         }}
                         animate={{
-                            y: window.innerHeight + 20,
+                            y: viewport.height + 20,
                         }}
                         transition={{
-                            duration: weatherType === "drizzle" ? 2 : 1,
+                            duration: normalizedWeatherType === "drizzle" ? 2 : 1,
                             repeat: Infinity,
                             delay: Math.random() * 2,
                             ease: "linear",
@@ -85,8 +100,7 @@ export function WeatherAnimations({ weatherType }: WeatherAnimationsProps) {
         );
     }
 
-    // Анимация снега
-    if (weatherType === "snow") {
+    if (normalizedWeatherType === "snow") {
         return (
             <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
                 {particles.map((i) => {
@@ -110,7 +124,7 @@ export function WeatherAnimations({ weatherType }: WeatherAnimationsProps) {
                                 opacity: Math.random() * 0.6 + 0.4,
                             }}
                             animate={{
-                                y: window.innerHeight + 20,
+                                y: viewport.height + 20,
                                 x: [0, xOffset, -xOffset, 0],
                             }}
                             transition={{

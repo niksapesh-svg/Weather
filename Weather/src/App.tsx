@@ -9,7 +9,7 @@ import { WeatherAnimations } from "./components/WeatherAnimations";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { motion } from "motion/react"; //for animations
 
-interface WeatherData { //поч это
+interface WeatherData {
     city: string;
     country: string;
     temperature: number;
@@ -253,10 +253,10 @@ function AppContent() {
         <div className="min-h-screen bg-white dark:bg-black transition-colors duration-500 relative">
             <WeatherAnimations weatherType={weatherData.current.weatherType} />
 
-            {/* Основной контент */}
+            {/* Main content */}
             <div className="relative z-10">
                 <div className="max-w-7xl mx-auto px-4 py-8">
-                    {/* Заголовок и переключатель тем */}
+                    {/* Header and Topic Switcher */}
                     <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-4">
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
@@ -272,7 +272,7 @@ function AppContent() {
                             </p>
                         </motion.div>
 
-                        {/*Анимация кнопки переключения темы*/}
+                        {/*Theme Switch Button Animation*/}
                         <motion.div
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -282,10 +282,10 @@ function AppContent() {
                         </motion.div>
                     </div>
 
-                    {/* Поиск */}
+                    {/* Search */}
                     <SearchBar onSearch={handleSearch} />
 
-                    {/* Текущая погода */}
+
                     <CurrentWeather
                         city={weatherData.current.city}
                         country={weatherData.current.country}
@@ -295,7 +295,7 @@ function AppContent() {
                         weatherType={weatherData.current.weatherType}
                     />
 
-                    {/* Дополнительные параметры */}
+
                     <WeatherDetails
                         humidity={weatherData.current.humidity}
                         windSpeed={weatherData.current.windSpeed}
@@ -303,7 +303,7 @@ function AppContent() {
                         cloudiness={weatherData.current.cloudiness}
                     />
 
-                    {/* Прогноз на 5 дней с временными промежутками */}
+                    {/* 5-day forecast with time intervals */}
                     <div className="mb-8">
                         <motion.h2
                             initial={{ opacity: 0 }}
@@ -325,7 +325,7 @@ function AppContent() {
                         </div>
                     </div>
 
-                    {/* Футер */}
+
                     <Footer />
                 </div>
             </div>
@@ -341,4 +341,4 @@ function App() {
     );
 }
 
-export default App; //Этот компонент — главный экспорт файла.Благодаря этому можно в другом файле написать:import App from "./App";
+export default App; // Этот компонент — главный экспорт файла.Благодаря этому можно в другом файле написать:import App from "./App";
