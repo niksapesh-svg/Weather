@@ -22,7 +22,7 @@ export function ThemeToggle() {
     ];
 
     return (
-        <div className="flex items-center gap-2 bg-white/10 dark:bg-white/5 backdrop-blur-md rounded-2xl p-2 border border-white/20 dark:border-white/10">
+        <div className="flex items-center gap-2 bg-black/30 dark:bg-white/10 backdrop-blur-md rounded-2xl p-2 border border-white/20 dark:border-white/10 shadow-[0_8px_32px_0_rgba(59,130,246,0.3)] dark:shadow-[0_8px_32px_0_rgba(59,130,246,0.2)]">
             {themes.map(({ value, icon: Icon, label }) => (
                 <motion.button
                     key={value}

@@ -53,7 +53,7 @@ export function CurrentWeather({
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="bg-white/10 dark:bg-white/5 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/20 dark:border-white/10 mb-8 shadow-xl dark:shadow-cyan-500/10"
+            className="bg-black/30 dark:bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/20 dark:border-white/10 mb-8 shadow-[0_8px_32px_0_rgba(59,130,246,0.3)] dark:shadow-[0_8px_32px_0_rgba(59,130,246,0.2)]"
         >
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                 {/* Иконка и температура */}

@@ -60,7 +60,7 @@ export function HourlyForecast({ day, date, hours }: HourlyForecastProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="bg-white/20 dark:bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/20 dark:border-white/10 hover:bg-white/25 dark:hover:bg-white/10 transition-colors shadow-lg dark:shadow-cyan-500/10"
+            className="bg-black/30 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 dark:border-white/10 hover:bg-black/40 dark:hover:bg-white/15 transition-colors shadow-[0_8px_32px_0_rgba(59,130,246,0.3)] dark:shadow-[0_8px_32px_0_rgba(59,130,246,0.2)]"
         >
             <div className="mb-4">
                 <h3 className="text-xl font-semibold text-gray-800 dark:text-white">

@@ -30,7 +30,7 @@ export function SearchBar({ onSearch }: SearchBarProps) {
                     value={searchValue}
                     onChange={(e) => setSearchValue(e.target.value)}
                     placeholder="Поиск города..."
-                    className="w-full px-6 py-4 pr-14 text-lg rounded-2xl bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 text-gray-800 dark:text-white placeholder-gray-600 dark:placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-cyan-400 transition-shadow"
+                    className="w-full px-6 py-4 pr-14 text-lg rounded-2xl bg-black/30 dark:bg-white/10 backdrop-blur-md border border-white/20 dark:border-white/10 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-[0_8px_32px_0_rgba(59,130,246,0.3)] dark:shadow-[0_8px_32px_0_rgba(59,130,246,0.2)] transition-shadow"
                 />
                 <motion.button
                     type="submit"
