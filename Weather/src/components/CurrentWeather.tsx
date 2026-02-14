@@ -53,11 +53,11 @@ export function CurrentWeather({
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="bg-black/30 dark:bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/20 dark:border-white/10 mb-8 shadow-[0_8px_32px_0_rgba(59,130,246,0.3)] dark:shadow-[0_8px_32px_0_rgba(59,130,246,0.2)]"
+            className="bg-sky-300 dark:bg-sky-500/40 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-sky-200/70 dark:border-sky-300/30 mb-8 shadow-[0_8px_32px_0_rgba(59,130,246,0.3)] dark:shadow-[0_8px_32px_0_rgba(59,130,246,0.2)]"
         >
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                 {/* Иконка и температура */}
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-6 bg-sky-200/70 dark:bg-sky-400/20 rounded-2xl p-4">
                     <motion.div
                         className="flex-shrink-0"
                         animate={{
@@ -82,7 +82,7 @@ export function CurrentWeather({
                 </div>
 
                 {/* Информация о городе и описание */}
-                <div className="text-center md:text-right">
+                <div className="text-center md:text-right bg-sky-200/70 dark:bg-sky-400/20 rounded-2xl p-4">
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-2">
                         {city}
                     </h1>
@@ -93,3 +93,4 @@ export function CurrentWeather({
         </motion.div>
     );
 }
+

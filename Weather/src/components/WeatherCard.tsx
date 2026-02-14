@@ -36,7 +36,7 @@ export function WeatherCard({
     };
 
     return (
-        <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-3xl p-8 text-white shadow-2xl">
+        <div className="bg-sky-300 dark:bg-sky-500/40 backdrop-blur-md rounded-3xl p-8 text-white border border-sky-200/70 dark:border-sky-300/30 shadow-[0_8px_32px_0_rgba(59,130,246,0.3)] dark:shadow-[0_8px_32px_0_rgba(59,130,246,0.2)]">
             <div className="flex justify-between items-start mb-6">
                 <div>
                     <h2 className="text-4xl mb-2">{location}</h2>
@@ -59,7 +59,7 @@ export function WeatherCard({
                 <div className="text-3xl">{condition}</div>
             </div>
 
-            <div className="grid grid-cols-3 gap-4 bg-white/10 backdrop-blur-sm rounded-2xl p-4">
+            <div className="grid grid-cols-3 gap-4 bg-sky-200/70 dark:bg-sky-400/20 backdrop-blur-sm rounded-2xl p-4">
                 <div className="flex flex-col items-center">
                     <Droplets className="w-6 h-6 mb-2" />
                     <p className="text-sm text-blue-100">Humidity</p>

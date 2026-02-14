@@ -22,15 +22,15 @@ export function ThemeToggle() {
     ];
 
     return (
-        <div className="flex items-center gap-2 bg-black/30 dark:bg-white/10 backdrop-blur-md rounded-2xl p-2 border border-white/20 dark:border-white/10 shadow-[0_8px_32px_0_rgba(59,130,246,0.3)] dark:shadow-[0_8px_32px_0_rgba(59,130,246,0.2)]">
+        <div className="flex items-center gap-2 bg-sky-200/70 dark:bg-sky-500/30 backdrop-blur-md rounded-2xl p-2 border border-sky-200/70 dark:border-sky-300/30 shadow-[0_8px_32px_0_rgba(59,130,246,0.3)] dark:shadow-[0_8px_32px_0_rgba(59,130,246,0.2)]">
             {themes.map(({ value, icon: Icon, label }) => (
                 <motion.button
                     key={value}
                     onClick={() => setTheme(value)}
                     className={`relative px-4 py-2 rounded-xl transition-all ${
                         theme === value
-                            ? "text-white"
-                            : "text-white/60 hover:text-white/80"
+                            ? "text-black dark:text-white"
+                            : "text-black/60 hover:text-black/80 dark:text-white/60 dark:hover:text-white/80"
                     }`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -38,7 +38,7 @@ export function ThemeToggle() {
                     {theme === value && (
                         <motion.div
                             layoutId="activeTheme"
-                            className="absolute inset-0 bg-white/20 dark:bg-cyan-500/20 rounded-xl border border-white/30 dark:border-cyan-400/30"
+                            className="absolute inset-0 bg-sky-300/80 dark:bg-sky-400/30 rounded-xl border border-sky-200/80 dark:border-sky-300/40"
                             transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                         />
                     )}

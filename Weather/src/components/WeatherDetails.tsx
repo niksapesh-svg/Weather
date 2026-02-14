@@ -46,7 +46,7 @@ export function WeatherDetails({
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.05 }}
-                    className="bg-black/30 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 dark:border-white/10 shadow-[0_8px_32px_0_rgba(59,130,246,0.3)] dark:shadow-[0_8px_32px_0_rgba(59,130,246,0.2)]"
+                    className="bg-sky-200/70 dark:bg-sky-500/30 backdrop-blur-md rounded-2xl p-6 border border-sky-200/70 dark:border-sky-300/30 shadow-[0_8px_32px_0_rgba(59,130,246,0.3)] dark:shadow-[0_8px_32px_0_rgba(59,130,246,0.2)]"
                 >
                     <div className="flex flex-col items-center text-center">
                         <detail.icon className="w-10 h-10 text-gray-700 dark:text-white/80 mb-3" strokeWidth={1.5} />
