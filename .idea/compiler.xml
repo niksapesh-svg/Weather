@@ -6,13 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="weather-app-back-end" />
+        <module name="WeatherApp_Front_End" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="weather-app-back-end" options="-parameters" />
+      <module name="WeatherApp_Front_End" options="-parameters" />
     </option>
   </component>
 </project>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../WeatherAppBack_End">
+      <sourceFolder url="file://$MODULE_DIR$/../WeatherAppBack_End/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../WeatherAppBack_End/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../WeatherAppBack_End/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../WeatherAppBack_End/src/test/resources" type="java-test-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/../WeatherAppBack_End/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
