@@ -88,57 +88,9 @@ function toDate(value: unknown): Date | null {
     return null;
 }
 
-// Normalizes backend weather values to icon-friendly UI values.
-function normalizeWeatherType(raw: string): string {
-    const value = raw.toLowerCase();
-
-    if (value.includes("clear") || value.includes("sun")) {
-        return "clear";
-    }
-    if (value.includes("thunder")) {
-        return "thunderstorm";
-    }
-    if (value.includes("drizzle")) {
-        return "drizzle";
-    }
-    if (value.includes("rain")) {
-        return "rain";
-    }
-    if (value.includes("snow")) {
-        return "snow";
-    }
-    if (value.includes("fog") || value.includes("mist") || value.includes("haze")) {
-        return "fog";
-    }
-    if (value.includes("cloud")) {
-        return "cloud";
-    }
-
-    return value || "cloud";
-}
-
+// Backend returns already normalized weather types, no normalization needed.
 function readWeatherType(source: Record<string, unknown>): string {
-    const direct = readString(source, ["weatherType", "main", "type"]);
-    if (direct) {
-        return normalizeWeatherType(direct);
-    }
-
-    const weatherValue = source.weather;
-    if (Array.isArray(weatherValue) && weatherValue.length > 0) {
-        const firstWeather = asRecord(weatherValue[0]);
-        const fromArray = readString(firstWeather, ["main", "description", "type"]);
-        if (fromArray) {
-            return normalizeWeatherType(fromArray);
-        }
-    }
-
-    const weatherObject = asRecord(weatherValue);
-    const fromObject = readString(weatherObject, ["main", "description", "type"]);
-    if (fromObject) {
-        return normalizeWeatherType(fromObject);
-    }
-
-    return "cloud";
+    return readString(source, ["weatherType", "main", "type"], "cloud");
 }
 
 function readDescription(source: Record<string, unknown>): string {
